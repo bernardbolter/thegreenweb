@@ -1,0 +1,64 @@
+@import '../../style/vars.scss';
+
+.users-container {
+    width: 100%;
+    height: 100vh;
+    background: $light3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        color: $light1;
+    }
+}
+
+.user-admin {
+    width: 250px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    p {
+        color: rgba(0,0,0,0.4);
+        font-size: 13px;
+        margin: 15px 0 0;
+        padding: 0;
+    }
+
+    .user-admin-input {
+        width: 80%;
+        background: rgba(255,255,255,0.2);
+        border: none;
+        padding: 4px 7px;
+        margin: 5px 0 10px;
+        outline: none;
+    }
+
+    .user-admin-button {
+        width: 60%;
+        background: rgba(0,0,0,0.4);
+        color: $light3;
+        font-size: 13px;
+        font-weight: 600;
+        outline: none;
+        border: none;
+        padding: 4px 7px;
+        margin: 3px 20% 10px 0;
+        opacity: 0.6;
+        transition: opacity .5s ease;
+        cursor: pointer;
+        align-self: flex-end;
+
+        &:hover {
+            opacity: 0.9;
+            transition: opacity .5s ease;
+        }
+    }
+}

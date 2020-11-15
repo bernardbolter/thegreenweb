@@ -1,0 +1,456 @@
+@import '../../style/vars.scss';
+
+//////////////////////////////////////////// Calendar
+
+.appointments  {
+    width: 100%;
+    padding: 0;
+    margin: 35px 0 0 0;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex;
+}
+
+.calender {
+    width: calc(100% - 320px);
+}
+
+.week {
+    width: 100%;
+}
+
+.day {
+    position: relative;
+    width: calc(100%/7);
+    height: 44px;
+    display: inline-block;
+    background-color: #eeeeee;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    z-index: 1;
+    text-align: center;  
+}
+
+.before {
+    opacity: 0.3
+}
+
+.date {
+    background: $light3;
+    padding: 8px;
+    text-align: center;
+    margin: 0;
+    font-size: 10px;
+    font-weight: 600;
+    color: $navBack;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+////////////////////////////////////////////////// Schedule Container
+
+.schedule-container {
+    width: 320px;
+    height: calc(100vh - 35px);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.select-view-current-appointments {
+    width: 320px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: $dark3;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity .5s ease;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+        transition: opacity .5s ease;
+    }
+
+    p {
+        font-weight: 600;
+        color: $navText;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+    }
+}
+
+///////////////////////////////////////////// Submit Appointments
+
+.submit-appointments {
+    background: $light3;
+    width: 100%;
+    height: calc(100vh - 35px);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.no-appointments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 200px 0 0 0;
+
+    p {
+        font-size: 12px;
+        color: $dark1;
+        font-weight: 600;
+        padding: 20px 0 0 0;
+        margin: 0;
+        opacity: 0.5;
+        width: 200px;
+        text-align: center;
+    }
+}
+
+.appointments-list {
+    margin: 25px 0 0 0;
+
+    .list-header {
+        width: 320px;
+        height: 35px;
+        background: $twitter;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            color: $navText;
+            letter-spacing: 0.07em;
+        }
+    }
+
+    .appoint-list-time {
+        width: 320px;
+
+        h5 {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            color: $navText;
+            font-size: 15px;
+            margin: 0 0 3px;
+            padding: 5px 0 5px 15px;
+        }
+
+        .appoint-times {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 96%;
+            margin: 0 2% 5px;
+
+            p {
+                text-align: center;
+                font-size: 12px;
+                background: rgba(255,255,255,0.4);
+                color: $dark1;
+                padding: 3px 5px;
+                margin: 2px;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+.appoint-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .submit-appoint-button {
+        background: $dark3;
+        width: 245px;
+        height: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.7;
+        transition: opacity .5s ease;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+            transition: opacity .5s ease;
+        }
+
+        p {
+            color: $navText;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+
+    .remove-appoint-button {
+        width: 85px;
+        height: 75px;
+        background: #bababa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity .5s ease;
+
+        &:hover {
+            opacity: 0.9;
+            transition: opacity .5s ease;
+        }
+
+        svg {
+            width: 25px;
+            fill: $red;
+        }
+
+        p {
+            color: $red;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+/////////////////////////////////////////// Calendar Header
+
+.calendar-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: $light1;
+    height: 55px;
+    cursor: pointer;
+
+    .calendar-header-link {
+        width: 100px;
+        opacity: 0.6;
+        transition: opacity 0.5s ease;
+
+        &:hover {
+            opacity: 0.9;
+            transition: opacity 0.5s ease;
+        }
+
+        svg {
+            height: 25px;
+            width: 25px;
+            fill: $dark3;
+            opacity: 0.7; 
+        }
+
+        p {
+            font-size: 10px;
+            color: $dark3;
+            font-weight: 300;
+            padding: 0;
+        }
+    }
+
+    .left {
+        svg {
+            transform: rotate(-90deg);
+            margin: 10px 0 0 10px;
+        }
+
+        p {
+            margin: 0 0 0 10px;
+        }
+    }
+
+    .right {
+        svg {
+            transform: rotate(90deg);
+            margin: 10px 0 0 65px;
+        }
+
+        p {
+            margin: 0 10px 0 0;
+            text-align: right;
+        }
+    }
+}
+
+.calendar-header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        font-size: 16px;
+        font-weight: 600;
+        color: $dark3;
+        padding: 0;
+        margin: 0;
+
+        span {
+            font-size: 10px;
+            font-weight: 300;
+            margin: 0 10px 0 0;
+        }
+    }
+}
+
+
+////////////////////////////////////// Date Components
+
+.date-container {
+    width: 100%;
+    padding: 15px 0;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        h5 {
+            text-decoration: underline;
+        }
+    }
+
+    .selected {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $twitter;
+        opacity: 0.3;
+        z-index: 100;
+        top: 0;
+    }
+
+    .available {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $red;
+        opacity: 0.3;
+        z-index: 100;
+        top: 0;
+    }
+
+    h5 {
+        font-size: 14px;
+        font-weight: 600;
+        opacity: 0.7;
+        padding: 0;
+        margin: 0;
+        color: $dark1;
+        z-index: 200;
+    }
+
+    p {
+        font-size: 10px;
+        font-weight: 300;
+        opacity: 0.8;
+        color: $dark3;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+}
+
+
+////////////////////////////////////////// AppointmentsList
+
+.appointments-schedule {
+    width: 100%;
+    height: calc(100vh - 35px);
+    background: $dark1;
+    overflow: overflow-y;
+
+    p {
+        width: 80%;
+        margin: 0 10%;
+        padding: 40px 0 0;
+        font-size: 11px;
+        color: $navText;
+    }
+}
+
+/////////////////////////////////////////////////// Available Dates
+
+.avail-date-container {
+    width: 90%;
+    margin: 20px 5%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.avail-date-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: $light3;
+    cursor: pointer;
+
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        color: $dark2;
+        margin: 0;
+        padding: 7px 0 7px 14px;
+    }
+
+    svg {
+        width: 20px;
+        fill: $dark2;
+        margin: 0 14px 0 0;
+        transform: rotate(180deg);
+        transition: transform .5s ease;
+    }
+
+    .avail-arrow-dropped {
+        transform: rotate(0deg);
+        transition: transform .5s ease;
+    }
+}
+
+.avail-times-container {
+    height: auto;
+    max-height: 0px;
+    transition: all 1s ease;
+    overflow: hidden;
+}
+
+.avail-times-container-dropped {
+    max-height: 1000px;
+    transition: all 1s ease;
+}
+
+.avail-time {
+    width: 100%;
+    background: rgba(255,255,255,0.4);
+
+    p {
+        color: $dark3;
+        margin: 0;
+        padding: 7px 0 14px 7px;
+    }
+}
+
+.avail-time-selected {
+    background: $red;
+}
